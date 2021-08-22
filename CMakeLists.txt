@@ -3,6 +3,6 @@ project(Logistic_SPC)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Articulation_tops Articulation_tops/Articulation_tops.cpp)
-add_executable(Bridges Bridges/Bridges.cpp)
-add_executable(Components Components/Components.cpp)
+add_executable(Articulation_tops_undirected Undirected/Articulation_tops/Articulation_tops.cpp)
+add_executable(Bridges_undirected Undirected/Bridges/Bridges.cpp)
+add_executable(Components_undirected Undirected/Components/Components.cpp)
