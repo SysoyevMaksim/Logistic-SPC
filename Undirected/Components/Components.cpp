@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <algorithm>
 #include <stack>
@@ -18,10 +17,10 @@ stack<Rib> output;
 Rib input;
 
 void print_stack(int top) {
-//    cout << "------------" << endl;
+    cout << "------------" << endl;
     while (!output.empty()) {
         Rib data = output.top();
-//        cout << data.start + 1 << " : " << data.finish + 1 << endl;
+        cout << data.start + 1 << " : " << data.finish + 1 << endl;
         output.pop();
         if (data.start == top) return;
     }
@@ -31,7 +30,7 @@ void dfs(int top, int parent) {
     Num[top] = order;
     Low[top] = Num[top];
     order++;
-    for (auto ending : tops[top]) {
+    for (auto ending: tops[top]) {
         if (Num[ending] == 0) {
             output.push({top, ending});
             dfs(ending, top);
@@ -57,12 +56,8 @@ int main() {
         cin >> input.start >> input.finish >> ways;
         input.start--;
         input.finish--;
-        if(ways == 2) {
-            tops[input.start].push_back(input.finish);
-            tops[input.finish].push_back(input.start);
-        } else if (ways == 1) {
-            tops[input.start].push_back(input.finish);
-        }
+        tops[input.start].push_back(input.finish);
+        tops[input.finish].push_back(input.start);
     }
     for (int i = 0; i < M; ++i) {
         sort(tops[i].begin(), tops[i].end());

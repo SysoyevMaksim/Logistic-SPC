@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -26,7 +25,7 @@ void dfs(int top, int parent) {
     Num[top] = order;
     Low[top] = Num[top];
     order++;
-    for (auto ending : tops[top]) {
+    for (auto ending: tops[top]) {
         if (ending == parent) continue;
         if (Num[ending] == 0) {
             dfs(ending, top);
@@ -49,12 +48,8 @@ int main() {
         cin >> input.start >> input.finish >> ways;
         input.start--;
         input.finish--;
-        if(ways == 2) {
-            tops[input.start].push_back(input.finish);
-            tops[input.finish].push_back(input.start);
-        } else if (ways == 1) {
-            tops[input.start].push_back(input.finish);
-        }
+        tops[input.start].push_back(input.finish);
+        tops[input.finish].push_back(input.start);
     }
     for (int i = 0; i < M; ++i) {
         sort(tops[i].begin(), tops[i].end());
@@ -63,6 +58,9 @@ int main() {
         if (Num[i] == 0) {
             dfs(i, -1);
         }
+    }
+    for (auto i: output) {
+        cout << i.start << " " << i.finish << endl;
     }
     return 0;
 }

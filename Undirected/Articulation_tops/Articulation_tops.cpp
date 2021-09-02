@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -10,7 +9,7 @@ struct Rib {
     int start, finish;
 };
 
-int M, N, order = 1, ways;
+int M, N, order = 1;
 vector<vector<int>> tops;
 vector<int> Num;
 vector<int> Low;
@@ -22,7 +21,7 @@ void dfs(int top, int parent) {
     Low[top] = Num[top];
     order++;
     int children = 0;
-    for (auto ending : tops[top]) {
+    for (auto ending: tops[top]) {
         if (Num[ending] == 0) {
             dfs(ending, top);
             Low[top] = min(Low[top], Low[ending]);
@@ -45,15 +44,11 @@ int main() {
     Num.resize(M, 0);
     Low.resize(M, INT32_MAX);
     for (int i = 0; i < N; ++i) {
-        cin >> input.start >> input.finish >> ways;
+        cin >> input.start >> input.finish;
         input.start--;
         input.finish--;
-        if(ways == 2) {
-            tops[input.start].push_back(input.finish);
-            tops[input.finish].push_back(input.start);
-        } else if (ways == 1) {
-            tops[input.start].push_back(input.finish);
-        }
+        tops[input.start].push_back(input.finish);
+        tops[input.finish].push_back(input.start);
     }
     for (int i = 0; i < M; ++i) {
         sort(tops[i].begin(), tops[i].end());
@@ -62,6 +57,9 @@ int main() {
         if (Num[i] == 0) {
             dfs(i, -1);
         }
+    }
+    for(auto i : output) {
+        cout << i << endl;
     }
     return 0;
 }
