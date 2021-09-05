@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <windows.h>
+#include <iostream>
 
 using namespace std;
 
@@ -56,10 +57,11 @@ int main(int argc, char **argv) {
         }
     }
     M /= 2;
+    cout << M;
     Num.resize(M, 0);
     Low.resize(M, INT32_MAX);
     QueryPerformanceCounter(&t1);
-    for (int i = 0; i < M; ++i) {
+    for (int i = 0; i < N; ++i) {
         if (Num[i] == 0) {
             dfs(i, -1);
         }
