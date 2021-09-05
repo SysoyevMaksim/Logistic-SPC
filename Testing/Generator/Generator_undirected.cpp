@@ -39,9 +39,8 @@ int main() {
         fout << tops << " " << N << "\n";
         for (unsigned int x = 0; x < tops; ++x) {
             for (unsigned int y = 0; y < tops; ++y) {
-                fout << (matrix[x][y] == 1 ? (to_string(x) + " " + to_string(y)) + " " : "");
+                fout << (matrix[x][y] == 1 ? (to_string(x+1) + " " + to_string(y+1)) + "\n" : "");
             }
-            fout << "\n";
         }
         fout.close();
     }
@@ -75,9 +74,8 @@ int main() {
         fout << tops << " " << N << "\n";
         for (unsigned int x = 0; x < tops; ++x) {
             for (unsigned int y = 0; y < tops; ++y) {
-                fout << (matrix[x][y] == 1 ? (to_string(x) + " " + to_string(y) + " ") : "");
+                fout << (matrix[x][y] == 1 ? (to_string(x+1) + " " + to_string(y+1) + "\n") : "");
             }
-            fout << "\n";
         }
         fout.close();
     }
@@ -111,9 +109,8 @@ int main() {
         fout << tops << " " << N << "\n";
         for (unsigned int x = 0; x < tops; ++x) {
             for (unsigned int y = 0; y < tops; ++y) {
-                fout << (matrix[x][y] == 1 ? (to_string(x) + " " + to_string(y)) + " " : "");
+                fout << (matrix[x][y] == 1 ? (to_string(x+1) + " " + to_string(y+1)) + "\n" : "");
             }
-            fout << "\n";
         }
         fout.close();
     }
