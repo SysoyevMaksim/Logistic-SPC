@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
         ribs[i + 1] = {input.finish, input.start};
     }
     QueryPerformanceCounter(&t1);
-    sort(ribs.begin(), ribs.end(), by_start_by_finish);
+//    sort(ribs.begin(), ribs.end(), by_start_by_finish);
     for (int i = 0; i < M; ++i) {
         if (Num[i] == 0) {
             dfs(i, -1);

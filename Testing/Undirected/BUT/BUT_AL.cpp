@@ -52,9 +52,9 @@ int main(int argc, char **argv) {
         tops[input.finish].push_back(input.start);
     }
     QueryPerformanceCounter(&t1);
-    for (int i = 0; i < M; ++i) {
-        sort(tops[i].begin(), tops[i].end());
-    }
+//    for (int i = 0; i < M; ++i) {
+//        sort(tops[i].begin(), tops[i].end());
+//    }
     for (int i = 0; i < M; ++i) {
         if (Num[i] == 0) {
             dfs(i, -1);

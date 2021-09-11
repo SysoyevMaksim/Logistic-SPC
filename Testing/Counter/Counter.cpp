@@ -19,6 +19,7 @@ int main(){
                 output_file.append(output_package).append(file_name);
                 ifstream input(input_file);
                 ofstream output(output_file);
+                double global_sum = 0;
                 for (int i = 0; i < 3; ++i) {
                     double sum = 0, maximum = 0, minimum, data;
                     input >> minimum;
@@ -30,8 +31,9 @@ int main(){
                         maximum = max(maximum, data);
                         sum += data;
                     }
-                    output << (sum - minimum - maximum) / 8 << "\n";
+                    global_sum += (sum - minimum - maximum) / 8;
                 }
+                output << global_sum / 3 << "\n";
             }
         }
     }
